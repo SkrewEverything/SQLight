@@ -4,6 +4,7 @@
 SQLight is a simple Swift layer over SQLite3.
 
 Working with SQLite3 in Swift is usually a headache due to the data types used in C. 
+
 SQLight handles all the headaches for you so that you can peacefully use it with Swift. 
 
 ### How is it different from other swift implementations?
@@ -11,11 +12,16 @@ SQLight handles all the headaches for you so that you can peacefully use it with
 hmmm...
 
 Most of the famous GitHub projects on sqlite3-swift are too complex to begin for swift beginners.
-And also it takes some time to learn the workings of the framework which **I think** it is *@#$@* waste of time.
+
+And also it takes time to learn the workings of the framework which *I think* it is a *@#$@ing* waste of time.
+
 ..
-..
-..
-many more
+
+....
+
+......
+
+and **its fun to create when you are capable!**
 
 ## Usage
 
@@ -75,23 +81,23 @@ do
     // Binding can be done in 3 ways
     for i in 0...5 // -> 1st
     {
-        try bindPS.bindValues([i,"jon"]) // takes [Any]. Binds values from left to right
+        try bindPS.bindValues([i,"jon"])  // takes [Any]. Binds values from left to right
         rowsChanged = try bindPS.modify() // execute
-        bindPS.resetBindValues() // removes the binded values for next use
+        bindPS.resetBindValues()          // removes the binded values for next use
     }
     
     for i in 0...5 // -> 2nd
     {
         try bindPS.bindValues([1:i,2:"john"]) // takes [Int:Any]. key -> parameter index, value -> value to bind
-        rowsChanged = try bindPS.modify() // execute
-        bindPS.resetBindValues() // removes the binded values for next use
+        rowsChanged = try bindPS.modify()     // execute
+        bindPS.resetBindValues()              // removes the binded values for next use
     }
     
     for i in 0...5 // -> 3rd
     {
         try bindPS.bindValues(["@num":i,"@name":"nothing"]) // takes [String:Any]. key -> parameter name, value -> value to bind
-        rowsChanged = try bindPS.modify() // execute
-        bindPS.resetBindValues() // removes the binded values for next use
+        rowsChanged = try bindPS.modify()                   // execute
+        bindPS.resetBindValues()                            // removes the binded values for next use
     }
     
     // You can get the number of bind parameters
@@ -150,7 +156,7 @@ do
                 else { continue }
             
             let strCol = String(cString:column) // column name as string
-            let strVal = String(cString:value) // value as string
+            let strVal = String(cString:value)  // value as string
             print(strVal, terminator: " ")
         }
         print("")
@@ -194,7 +200,7 @@ catch let error as DBError
 }
 
 ```
->Note: Currently it doesn't support blob data type.
+>Note: Currently it doesn't support `blob` data type.
 
 
 ## Installation
